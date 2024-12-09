@@ -1,0 +1,1 @@
+http://localhost:5000/api/transaction/verify-paystack-deposit?trxref=e3ae3d44-8501-40d1-b586-951000a0dc97&reference=e3ae3d44-8501-40d1-b586-951000a0dc97

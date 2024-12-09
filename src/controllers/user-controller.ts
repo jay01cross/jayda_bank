@@ -6,19 +6,20 @@ import JWT from "jsonwebtoken";
 
 import UserService from "../services/user-service";
 
-import { AccountStatus, EmailStatus, UserRoles } from "../interfaces/enum/user-enums";
+import { AccountStatus, EmailStatus, UserRoles } from "../interfaces/enum/user-enum";
 
 import { IUserCreationBody } from "../interfaces/user-interface";
 
 import Utility from "../utils/index.utils";
 
-import { ResponseCode } from "../interfaces/enum/code-enums";
+import { ResponseCode } from "../interfaces/enum/code-enum";
 
 import TokenService from "../services/token-service ";
 
 import { IToken } from "../interfaces/token-interface";
 
 import EmailService from "../services/email-service";
+
 import moment from "moment";
 
 class UserController {
