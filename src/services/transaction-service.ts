@@ -9,6 +9,12 @@ class TransactionService {
     this.transactionDataSource = _transactionDataSource;
   }
 
+  async fetchTransactionByReference(reference: string): Promise<ITransaction | null> {
+    const query = { where: { reference }, raw: true };
+
+    return this.transactionDataSource.fetchOne(query);
+  }
+
   async depositByPaystack(data: Partial<ITransaction>): Promise<ITransaction> {
     const deposit = {
       ...data,
@@ -18,6 +24,14 @@ class TransactionService {
     } as ITransactionCreationBody;
 
     return this.transactionDataSource.create(deposit);
+  }
+
+  async setStatus(transactionId: string, status: string, options: Partial<IFindTransactionQuery> = {}) {
+    const filter = { where: { id: transactionId }, ...options };
+
+    const update = { status };
+
+    await this.transactionDataSource.updateOne(update, filter);
   }
 }
 

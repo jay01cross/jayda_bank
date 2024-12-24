@@ -57,8 +57,8 @@ export const Auth = () => {
           throw new TypeError("Authorization Failed");
         }
 
-        console.log(req.body.user);
         req.body.user = decoded;
+        // console.log(req.body.user);
 
         next();
       } else {
